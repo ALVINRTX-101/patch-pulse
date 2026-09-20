@@ -1,0 +1,11 @@
+services:
+  patch-pulse:
+    build: .
+    environment:
+      PATCH_PULSE_DRY_RUN: "true"
+      PATCH_PULSE_LOG_LEVEL: "INFO"
+      PATCH_PULSE_AUDIT_FILE: "/app/audit/patch-pulse-audit.jsonl"
+      PATCH_PULSE_ALLOWED_ENVIRONMENTS: "dev,staging"
+      PATCH_PULSE_ALLOW_PRODUCTION: "false"
+    volumes:
+      - ./audit:/app/audit
